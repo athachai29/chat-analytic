@@ -44,3 +44,30 @@ app.include_router(api_router_v1, prefix="/api")
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+
+@app.get("/upload", response_class=HTMLResponse)
+async def upload(request: Request):
+    return templates.TemplateResponse("upload.html", {"request": request})
+
+
+@app.get("/report", response_class=HTMLResponse)
+async def report(request: Request):
+    return templates.TemplateResponse("request_report.html", {"request": request})
+
+
+@app.get("/report/{chat_id}", response_class=HTMLResponse)
+async def report(request: Request, chat_id: str):
+    return templates.TemplateResponse(
+        "view_report.html", {"request": request, "chat_id": chat_id}
+    )
+
+
+@app.get("/about", response_class=HTMLResponse)
+async def about(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
+
+@app.get("/howto", response_class=HTMLResponse)
+async def about(request: Request):
+    return templates.TemplateResponse("howto.html", {"request": request})
