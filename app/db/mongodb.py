@@ -9,4 +9,4 @@ db = DataBase()
 
 
 async def get_database() -> AsyncIOMotorClient:
-    return db.client["chat_analysis_app"]
+    return db.client["chat_analytic_app"]

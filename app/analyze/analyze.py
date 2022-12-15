@@ -104,7 +104,7 @@ def hightly_active(df: pd.DataFrame):
     plt.xlabel("Time")
     plt.ylabel("No. of messages")
     # plt.ylim(top=2000)
-    plt.title("Analysis of time when Group was highly active.")
+    plt.title("Analytic of time when Group was highly active.")
     bytes_image = io.BytesIO()
     plt.savefig(bytes_image, format="png")
     bytes_image.seek(0)
