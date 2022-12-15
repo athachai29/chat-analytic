@@ -4,12 +4,6 @@
 
 - [ ] Analyze your chat history, then show basic statistics and some visualized graphs
 
-## Tasks
-
-- [x] Anayze chat history
-- [ ] Upload chat history file from LINE
-- [ ] View report of chat hisory with report id
-
 ## Scripts
 
 ```shell
