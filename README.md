@@ -5,7 +5,7 @@ Analyze your chat history, then show basic statistics and some visualized graphs
 ## Scripts
 
 ```shell
-# active virtualenv
+# activate virtualenv
 source ./venv/bin/activate
 
 # run app
