@@ -1,0 +1,13 @@
+{% extends "base.html.j2" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{% if path == '' %}
+{% include "home.html.j2" %}
+{%else%}
+{% include path+".html.j2" %}
+{% endif %}
+{% endblock %}

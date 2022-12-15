@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from typing import Union
 
 # from pydantic import BaseModel
 
@@ -41,33 +42,35 @@ app.include_router(api_router_v1, prefix="/api")
 # app.include_router(api_router_v2, prefix="/api/v2")
 
 
-@app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
-
-
-@app.get("/upload", response_class=HTMLResponse)
-async def upload(request: Request):
-    return templates.TemplateResponse("upload.html", {"request": request})
-
-
-@app.get("/report", response_class=HTMLResponse)
-async def report(request: Request):
-    return templates.TemplateResponse("request_report.html", {"request": request})
-
-
-@app.get("/report/{chat_id}", response_class=HTMLResponse)
-async def report(request: Request, chat_id: str):
+@app.get("/{path:path}", response_class=HTMLResponse)
+async def index(request: Request, path: Union[str, None] = None):
     return templates.TemplateResponse(
-        "view_report.html", {"request": request, "chat_id": chat_id}
+        "index.html.j2", {"request": request, "path": path}
     )
 
 
-@app.get("/about", response_class=HTMLResponse)
-async def about(request: Request):
-    return templates.TemplateResponse("about.html", {"request": request})
+# @app.get("/upload", response_class=HTMLResponse)
+# async def upload(request: Request):
+#     return templates.TemplateResponse("upload.html.j2", {"request": request})
 
 
-@app.get("/howto", response_class=HTMLResponse)
-async def about(request: Request):
-    return templates.TemplateResponse("howto.html", {"request": request})
+# @app.get("/report", response_class=HTMLResponse)
+# async def report(request: Request):
+#     return templates.TemplateResponse("request_report.html.j2", {"request": request})
+
+
+# @app.get("/report/{chat_id}", response_class=HTMLResponse)
+# async def report(request: Request, chat_id: str):
+#     return templates.TemplateResponse(
+#         "view_report.html.j2", {"request": request, "chat_id": chat_id}
+#     )
+
+
+# @app.get("/about", response_class=HTMLResponse)
+# async def about(request: Request):
+#     return templates.TemplateResponse("about.html.j2", {"request": request})
+
+
+# @app.get("/howto", response_class=HTMLResponse)
+# async def about(request: Request):
+#     return templates.TemplateResponse("howto.html.j2", {"request": request})
