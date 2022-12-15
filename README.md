@@ -5,10 +5,10 @@ Analyze your chat history, then show basic statistics and some visualized graphs
 ## Scripts
 
 ```shell
-// active virtualenv
+# active virtualenv
 source ./venv/bin/activate
 
-// run app
+# run app
 uvicorn app.main:app --reload
 ```
 
