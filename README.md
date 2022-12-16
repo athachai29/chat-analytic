@@ -17,14 +17,8 @@ source ./venv/bin/activate
 # run app
 uvicorn app.main:app --reload
 
-# create new app on existing project on deta.sh
-deta new app --project chat-analytic-service
-
-# deploy app to deta.sh
-deta deploy app
-
-# enable logging
-deta visor enable
+# deploy app to google app engine
+gcloud app deploy app.yaml --project playground
 ```
 
 ## References
