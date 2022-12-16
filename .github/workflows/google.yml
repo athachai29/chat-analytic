@@ -17,7 +17,7 @@ on:
     branches: ["main"]
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  PROJECT_ID: maximal-furnace-371714 # ${{ secrets.GKE_PROJECT }}
   GAR_LOCATION: asia-southeast1
   GKE_CLUSTER: cluster-1 # TODO: update to cluster name
   GKE_ZONE: asia-southeast1-a # TODO: update to cluster zone
