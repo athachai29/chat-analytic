@@ -46,7 +46,7 @@ jobs:
         with:
           token_format: "access_token"
           workload_identity_provider: "projects/1040628262341/locations/global/workloadIdentityPools/playground-pool/providers/playground-provider"
-          service_account: "1040628262341@cloudbuild.gserviceaccount.com"
+          service_account: "playground-service-account@maximal-furnace-371714.iam.gserviceaccount.com"
 
       # Alternative option - authentication via credentials json
       # - id: 'auth'
