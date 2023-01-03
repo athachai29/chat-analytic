@@ -42,6 +42,16 @@ app.include_router(api_router_v1, prefix="/api")
 # app.include_router(api_router_v2, prefix="/api/v2")
 
 
+@app.get("/favicon.ico")
+def favicon():
+    return app.send_static_file("favicon.ico")
+
+
+@app.get("/robot.txt")
+def favicon():
+    return app.send_static_file("robot.txt")
+
+
 @app.get("/{path:path}", response_class=HTMLResponse)
 async def index(request: Request, path: Union[str, None] = None):
     return templates.TemplateResponse(
