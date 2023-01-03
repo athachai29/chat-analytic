@@ -17,8 +17,14 @@ source ./venv/bin/activate
 # run app
 uvicorn app.main:app --reload
 
+# login to gcloud
+gcloud auth login
+
+# switch gclound account
+gcloud config set account mala.ut.29@gmail.com
+
 # deploy app to google app engine
-gcloud app deploy app.yaml --project playground
+gcloud app deploy app.yaml --project maximal-furnace-371714
 ```
 
 ## References
