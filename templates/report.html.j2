@@ -1,13 +1,83 @@
 <main class="container">
     <h1 class="display-1 mt-5">View Report</h1>
-    <form class="row g-3">
+    <form id="form" class="row g-3 mb-3">
         <div class="col-12">
-            <label for="formReportCode" class="lead form-label">View your report here</label>
-            <input class="form-control" type="text" id="formReportCode" required
+            <label for="formChatId" class="lead form-label">View your report here</label>
+            <input class="form-control" type="text" id="formChatId" required
                 placeholder="e.g. addf120b430021c36c232c99ef8d926aea2acd6b">
         </div>
         <div class="col-12">
             <button class="btn btn-primary" type="submit">View</button>
         </div>
     </form>
+    <div id="report" style="display: none;">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Basic Stats</h5>
+                        {# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> #}
+                        <div class="card-text">Total called: <span id="totalCalled"></span></div>
+                        <div class="card-text">Total media: <span id="totalMedia"></span></div>
+                        <div class="card-text">Total messages: <span id="totalMessage"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Basic Stats of Each Author</h5>
+                        <div id="authors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const chat_id = document.getElementById('formChatId').value;
+
+            fetch(`/api/${chat_id}`)
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data);
+
+                    // TODO: if want to use masonry then generate response zone here
+
+                    document.getElementById("totalCalled").innerText = data.report.basic_stats.total_calleds;
+                    document.getElementById("totalMedia").innerText = data.report.basic_stats.total_medias;
+                    document.getElementById("totalMessage").innerText = data.report.basic_stats.total_messags;
+
+                    const list = document.getElementById("authors");
+
+                    data.report.basic_stats_of_each_author.forEach(item => {
+                        const li = document.createElement("li");
+                        li.style = "list-style-type: none;";
+                        li.classList = "mb-2";
+
+                        const divAuthor = document.createElement("div");
+                        divAuthor.innerText = item.author;
+                        const divTotalCalled = document.createElement("div");
+                        divTotalCalled.innerText = `Total called: ${item.total_calleds}`;
+                        const divTotalMedia = document.createElement("div");
+                        divTotalMedia.innerText = `Total media: ${item.total_medias}`;
+                        const divTotalMessages = document.createElement("div");
+                        divTotalMessages.innerText = `Total message: ${item.total_messages}`;
+
+                        li.append(divAuthor, divTotalCalled, divTotalMedia, divTotalMessages);
+
+                        list.append(li);
+                    });
+
+                    document.getElementById("report").style = "display: block;";
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    });
+</script>
