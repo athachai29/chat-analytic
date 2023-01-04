@@ -3,7 +3,7 @@
 
 <head>
     {% block head %}
-    <!-- Google tag (gtag.js) -->
+    {# Google tag (gtag.js) #}
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHSP9E03KZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -12,29 +12,19 @@
 
         gtag('config', 'G-LHSP9E03KZ');
     </script>
+    {# End Google tag (gtag.js) #}
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     {# <title>{% block title %}{% endblock %} - Chat Analytic</title> #}
     <title>Chat Analytic</title>
+
     {% include "/components/bootstrap.html" %}
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='/favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='/apple-touch-icon.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ url_for('static', path='/apple-touch-icon-precomposed.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', path='/apple-touch-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152"
-        href="{{ url_for('static', path='/apple-touch-icon-152x152-precomposed.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', path='/apple-touch-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120"
-        href="{{ url_for('static', path='/apple-touch-icon-120x120-precomposed.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', path='/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', path='/site.webmanifest') }}">
     <link href="{{ url_for('static', path='/css/style.css?v=1.0.0') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/index.css?v=1.0.0') }}" rel="stylesheet">
-    <link rel="icon" href="data:,">
     {% endblock %}
 </head>
 
