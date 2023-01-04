@@ -43,13 +43,9 @@ app.include_router(api_router_v1, prefix="/api")
 
 
 @app.get("/favicon.ico")
-def favicon():
-    return app.send_static_file("favicon.ico")
-
-
-@app.get("/robot.txt")
-def favicon():
-    return app.send_static_file("robot.txt")
+@app.get("/robots.txt")
+def static():
+    return StaticFiles(directory="static")
 
 
 @app.get("/{path:path}", response_class=HTMLResponse)
