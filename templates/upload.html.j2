@@ -27,7 +27,7 @@
     </form>
     <div id="response" class="lead" style="display: none;">
         <span>
-            Please keep this Chat ID: <span id="chatid" style="font-weight: bold;"></span>
+            Please keep this Chat ID: <span id="chatId" style="font-weight: bold;"></span>
         </span>
     </div>
 </main>
@@ -47,8 +47,7 @@
             })
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data);
-                    document.getElementById("chatid").innerText = data.chat_id.substring(data.chat_id.length - 5);
+                    document.getElementById("chatId").innerText = data.chat_id.substring(data.chat_id.length - 5);
                     document.getElementById("response").style = "display: inline;";
                 })
                 .catch(error => {
