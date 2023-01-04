@@ -1,15 +1,59 @@
 <main class="container">
-    <h1 class="display-3 mt-5">Upload Chat</h1>
-    <form class="row g-3">
-        <div class="col-12">
-            <label for="formFile" class="form-label">Upload your chat history here</label>
+    <h1 class="display-1 mt-5">Upload Chat</h1>
+    <form id="form" class="mb-3">
+        <div class="mb-3" aria-describedby="passwordHelpInline">
+            <label for="formFile" class="lead form-label">Upload your chat history here</label>
             <input class="form-control" type="file" id="formFile" accept="text/plain" required>
+            <div class="col-auto text-end">
+                <span id="passwordHelpInline" class="form-text">
+                    <a href="/howto">How to get your chat history</a>
+                </span>
+            </div>
         </div>
-        <div class="col-12">
-            <button class="btn btn-primary" type="submit">Upload</button>
+        <div class="row">
+            {# <div class="col" aria-describedby="passwordHelpInline">
+                <input type="checkbox" class="form-check-input" id="hideContentCheck" checked>
+                <label class="form-check-label" for="hideContentCheck">Hide chat content</label>
+                <div class="col-auto">
+                    <span id="passwordHelpInline" class="form-text">
+                        Do pattern only.
+                    </span>
+                </div>
+            </div> #}
+            <div class="col text-end">
+                <button class="btn btn-primary" type="submit">Upload</button>
+            </div>
         </div>
     </form>
-    <div class="text-end">
-        <a href="/howto">How to get your chat history</a>
+    <div id="response" class="lead" style="display: none;">
+        <span>
+            Please keep this Chat ID: <span id="chatid" style="font-weight: bold;"></span>
+        </span>
     </div>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const file = document.getElementById('formFile').files[0];
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/api/', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById("chatid").innerText = data.chat_id.substring(data.chat_id.length - 5);
+                    document.getElementById("response").style = "display: inline;";
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    });
+</script>
