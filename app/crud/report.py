@@ -11,7 +11,7 @@ async def create_report(document: ReportBase) -> None:
 
 
 async def get_report(chat_id: str) -> dict:
-    chat = await (await get_database())["chats"].find_one(
+    chat = await get_database()["chats"].find_one(
         {"chat_id": {"$regex": f"{chat_id}$"}}
     )
 

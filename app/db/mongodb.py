@@ -8,5 +8,5 @@ class DataBase:
 db = DataBase()
 
 
-async def get_database() -> AsyncIOMotorClient:
+def get_database() -> AsyncIOMotorClient:
     return db.client["chat_analytic_app"]
