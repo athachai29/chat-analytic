@@ -20,7 +20,7 @@ env:
   PROJECT_ID: maximal-furnace-371714 # ${{ secrets.GKE_PROJECT }}
   GAR_LOCATION: asia-southeast1
   GKE_CLUSTER: autopilot-cluster-1 # TODO: update to cluster name
-  GKE_ZONE: asia-southeast1-a # TODO: update to cluster zone
+  GKE_ZONE: asia-southeast1 # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   REPOSITORY: samples # TODO: update to Artifact Registry docker repository
   IMAGE: static-site
