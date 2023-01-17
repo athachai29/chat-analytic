@@ -2,12 +2,15 @@ import pandas as pd
 
 from ..db.mongodb import get_database
 from ..models.report import ReportBase
-from ..analyze.analyze import cal_basic_stats, cal_basic_stats_of_each_author
+from ..analyze.analyze import (
+    calculate_basic_stats,
+    calculate_basic_stats_of_each_author,
+)
 
 
 async def create_report(document: ReportBase) -> None:
     document = ReportBase(**document).dict()
-    await (await get_database())["reports"].insert_one(document)
+    await get_database()["reports"].insert_one(document)
 
 
 async def get_report(chat_id: str) -> dict:
@@ -21,8 +24,8 @@ async def get_report(chat_id: str) -> dict:
     df = pd.DataFrame.from_dict(chat["messages"], orient="index")
 
     results = {
-        "basic_stats": cal_basic_stats(df),
-        "basic_stats_of_each_author": cal_basic_stats_of_each_author(df),
+        "basic_stats": calculate_basic_stats(df),
+        "basic_stats_of_each_author": calculate_basic_stats_of_each_author(df),
     }
 
     return results

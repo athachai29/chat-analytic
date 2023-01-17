@@ -14,7 +14,7 @@ async def create_chat(doc: dict) -> None:
     doc = ChatBase(**doc).dict()
 
     try:
-        await (await get_database())["chats"].insert_one(doc)
+        await get_database()["chats"].insert_one(doc)
     except DuplicateKeyError:
         print("this chat has exists")
     except Exception as e:
