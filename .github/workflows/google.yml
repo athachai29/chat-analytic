@@ -10,17 +10,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup gcloud
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
-        with:
-          service_account_email: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_EMAIL }}
-          service_account_key: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
-          project_id: ${{ secrets.GCLOUD_PROJECT_ID }}
-          version: "300.0.0"
-
       - name: Deploy to App Engine
-        run: |
-          gcloud app deploy
-        env:
-          GCLOUD_PROJECT_ID: ${{ secrets.GCLOUD_PROJECT_ID }}
-          GOOGLE_REGION: ${{ secrets.GOOGLE_REGION }}
+        uses: "google-github-actions/deploy-appengine@v1"
