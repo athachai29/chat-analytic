@@ -9,10 +9,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - id: "auth"
-        uses: "google-github-actions/auth@v1"
-        with:
-          credentials_json: "${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}"
-
       - name: echo
         run: echo ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
