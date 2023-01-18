@@ -15,7 +15,3 @@ jobs:
         with:
           project_id: ${{ secrets.GCLOUD_PROJECT_ID }}
           credentials: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
-          deliverables: app.yaml
-          working_directory: ./
-          flags: --no-cache
-          version: master
