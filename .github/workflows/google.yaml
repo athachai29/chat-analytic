@@ -7,12 +7,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      credentials: ${{ secrets.GCP_CREDENTIALS }}
 
     steps:
-      - name: ENV
-        env:
-          credentials: ${{ secrets.GCP_CREDENTIALS }}
-
       - name: Checkout code
         uses: actions/checkout@v3
         with:
@@ -21,7 +19,7 @@ jobs:
       - name: Authentication
         uses: "google-github-actions/auth@v1"
         with:
-          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+          credentials_json: ${{ env.credentials }}
 
       - name: Deploy
         uses: "google-github-actions/deploy-appengine@v1"
