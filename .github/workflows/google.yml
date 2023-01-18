@@ -5,10 +5,9 @@ on:
       - main
 
 jobs:
-  deploy:
+  echo_secret:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "My action"
-        shell: bash
+      - name: Echo Secret Variable
         run: echo ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
