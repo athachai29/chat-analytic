@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: echo
+      - name: "My action"
         run: echo ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
