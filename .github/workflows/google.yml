@@ -13,8 +13,8 @@ jobs:
         id: deploy-app
         uses: google-github-actions/deploy-appengine@v0.4.0
         with:
-          project: ${{ secrets.GCLOUD_PROJECT_ID }}
+          project_id: ${{ secrets.GCLOUD_PROJECT_ID }}
           credentials: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
-          deliverables: app.yaml
+          deliverables: ../../app.yaml
           flags: --no-cache
           version: master
