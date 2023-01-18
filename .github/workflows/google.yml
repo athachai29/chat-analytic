@@ -17,6 +17,3 @@ jobs:
 
       - id: "deploy"
         uses: "google-github-actions/deploy-appengine@v1"
-        with:
-          working_directory: /
-          deliverables: app.yaml
