@@ -1,5 +1,4 @@
 name: Deploy to App Engine
-
 on:
   push:
     branches:
@@ -10,11 +9,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to App Engine
-        id: deploy-app
-        uses: google-github-actions/deploy-appengine@v0.1.0
-        with:
-          project: ${{ secrets.GCLOUD_PROJECT_ID }}
-          credentials: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
-          working_directory: ./
-          deliverables: app.yaml
+      - name: Checkout code
+        uses: actions/checkout@v2
