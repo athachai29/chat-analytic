@@ -10,12 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Deploy to App Engine
-        uses: google-github-actions/deploy-appengine@v1.1.0
+        id: deploy-app
+        uses: google-github-actions/deploy-appengine@v0.1.0
         with:
-          service_account: my-service-account@my-project.iam.gserviceaccount.com
           project: ${{ secrets.GCLOUD_PROJECT_ID }}
           credentials: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
+          deliverables: app.yaml
