@@ -6,11 +6,15 @@ on:
 
 jobs:
   deploy:
+    name: Deploy to App Engine
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - id: "deploy"
         uses: "google-github-actions/deploy-appengine@v1"
         with:
           working_directory: /
-          deliverable: app.yaml
+          deliverables: app.yaml
