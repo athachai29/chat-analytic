@@ -12,6 +12,6 @@ jobs:
       - name: Echo Secret Variable
         run: |
           import os
-          for q in ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}:
+          for q in ${{ secrets.GCLOUD_PROJECT_ID }}:
             print(q)
         shell: python
