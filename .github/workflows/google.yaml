@@ -1,14 +1,16 @@
 name: Deploy to App Engine
+
 on:
   push:
     branches:
       - main
 
+env:
+  CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      credentials: ${{ secrets.GCP_CREDENTIALS }}
 
     steps:
       - name: Checkout code
@@ -19,7 +21,7 @@ jobs:
       - name: Authentication
         uses: "google-github-actions/auth@v1"
         with:
-          credentials_json: ${{ env.credentials }}
+          credentials_json: ${{ env.CREDENTIALS }}
 
       - name: Deploy
         uses: "google-github-actions/deploy-appengine@v1"
