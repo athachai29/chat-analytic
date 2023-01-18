@@ -12,8 +12,3 @@ jobs:
       - name: Deploy an App Engine app
         id: deploy-app
         uses: google-github-actions/deploy-appengine@v1
-        with:
-          project_id: ${{ secrets.GCLOUD_PROJECT_ID }}
-          credentials: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
-          working_directory: /
-          deliverables: app.yaml
