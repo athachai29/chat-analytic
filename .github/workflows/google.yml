@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Deploy an App Engine app
         id: deploy-app
-        uses: google-github-actions/deploy-appengine@v0.1.0
+        uses: google-github-actions/deploy-appengine@v1
         with:
           project: ${{ secrets.GCLOUD_PROJECT_ID }}
-          deliverables: app.yaml
           credentials: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
+          deliverables: app.yaml
