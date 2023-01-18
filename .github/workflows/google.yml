@@ -5,15 +5,9 @@ on:
       - main
 
 jobs:
-  echo_secret:
+  job_id:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Echo Secret Variable
-        env:
-          MY_VAL: ${{ secrets.GCLOUD_PROJECT_ID }}
-        run: |
-          import os
-          for q in (os.getenv("MY_VAL")):
-            print(q)
-        shell: python
+      - id: "deploy"
+        uses: "google-github-actions/deploy-appengine@v1"
