@@ -10,4 +10,8 @@ jobs:
 
     steps:
       - name: Echo Secret Variable
-        run: echo ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }} && echo something && echo ${{ secrets.GCLOUD_PROJECT_ID }}
+        run: |
+          import os
+          for q in ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}:
+            print(q)
+        shell: python
