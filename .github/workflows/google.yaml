@@ -21,9 +21,11 @@ jobs:
           repository: ${{ github.repository }}
 
       - name: Authentication
+        env:
+          CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
         uses: "google-github-actions/auth@v1"
         with:
-          credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
+          credentials_json: $CREDENTIALS
 
       - name: Deploy
         uses: "google-github-actions/deploy-appengine@v1"
