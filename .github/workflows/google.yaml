@@ -21,7 +21,7 @@ jobs:
       - name: Authentication
         uses: "google-github-actions/auth@v1"
         with:
-          credentials_json: ${{ env.CREDENTIALS }}
+          credentials_json: $CREDENTIALS
 
       - name: Deploy
         uses: "google-github-actions/deploy-appengine@v1"
