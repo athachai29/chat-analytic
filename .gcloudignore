@@ -17,3 +17,5 @@
 __pycache__/
 # Ignored by the build system
 /setup.cfg
+
+maximal-furnace-371714-2b669ffbba6a.json
