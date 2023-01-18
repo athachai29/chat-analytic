@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          Default: ${{ github.repository }}
+          repository: ${{ github.repository }}
 
       - id: "deploy"
         uses: "google-github-actions/deploy-appengine@v1"
