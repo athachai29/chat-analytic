@@ -9,12 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: ENV
+        env:
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           repository: ${{ github.repository }}
 
-      - uses: "google-github-actions/auth@v1"
+      - name: Authentication
+        uses: "google-github-actions/auth@v1"
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
-      - uses: "google-github-actions/deploy-appengine@v1"
+      - name: Deploy
+        uses: "google-github-actions/deploy-appengine@v1"
