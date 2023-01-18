@@ -14,5 +14,6 @@ jobs:
           MY_VAL: ${{ secrets.GCLOUD_PROJECT_ID }}
         run: |
           import os
-          print(os.getenv("MY_VAL"))
+          for q in (os.getenv("MY_VAL")):
+            print(q)
         shell: python
