@@ -10,8 +10,9 @@ jobs:
 
     steps:
       - name: Echo Secret Variable
+        env:
+          MY_VAL: ${{ secrets.GCLOUD_PROJECT_ID }}
         run: |
           import os
-          for q in ${{ secrets.GCLOUD_PROJECT_ID }}:
-            print(q)
+          print(os.getenv("MY_VAL"))
         shell: python
