@@ -15,5 +15,4 @@ jobs:
         with:
           project_id: ${{ secrets.GCLOUD_PROJECT_ID }}
           credentials: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
-          working_directory: /
-          deliverables: "../../app.yaml"
+          deliverables: app.yaml
