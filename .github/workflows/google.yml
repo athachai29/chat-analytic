@@ -10,4 +10,5 @@ jobs:
 
     steps:
       - name: "My action"
+        shell: bash
         run: echo ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
