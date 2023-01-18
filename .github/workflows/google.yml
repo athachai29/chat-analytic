@@ -10,4 +10,4 @@ jobs:
 
     steps:
       - name: Echo Secret Variable
-        run: echo ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
+        run: echo ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }} && echo something && echo ${{ secrets.GCLOUD_PROJECT_ID }}
