@@ -11,7 +11,4 @@ jobs:
     steps:
       - name: Deploy an App Engine app
         id: deploy-app
-        uses: google-github-actions/deploy-appengine@v1
-        with:
-          working_directory: /
-          deliverables: app.yaml
+        uses: google-github-actions/deploy-appengine@main
