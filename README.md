@@ -2,6 +2,8 @@
 
 Analyze your chat history, then show basic statistics and some visualized graphs
 
+[![Deploy to App Engine](https://github.com/athachai29/chat-analytic/actions/workflows/google.yaml/badge.svg)](https://github.com/athachai29/chat-analytic/actions/workflows/google.yaml)
+
 ## Scripts
 
 ```shell
