@@ -7,3 +7,12 @@ automatic_scaling:
   max_idle_instances: 1
   min_pending_latency: automatic
   max_pending_latency: automatic
+env_variables:
+  FASTAPI_TITLE: Chat Analysis Service
+  FASTAPI_DESCRIPTION: Service for your relationship
+  FASTAPI_CONTACT_NAME: Athachai Mala-ut
+  FASTAPI_CONTACT_URL: https://bit.ly/m/athachai
+  FASTAPI_CONTACT_EMAIL: mala.ut.29@gmail.com
+  FASTAPI_LICENSE_INFO_NAME: Apache 2.0
+  FASTAPI_LICENSE_INFO_URL: https://www.apache.org/licenses/LICENSE-2.0.html
+  DB_URL: mongodb+srv://experimental_admin:zaZcOa2%24lj48s22l@cluster0.bhfv7.mongodb.net
