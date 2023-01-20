@@ -2,8 +2,6 @@
 
 Analyze your chat history, then show basic statistics and some visualized graphs
 
-[![Deploy to App Engine](https://github.com/athachai29/chat-analytic/actions/workflows/google.yaml/badge.svg)](https://github.com/athachai29/chat-analytic/actions/workflows/google.yaml)
-
 ## Scripts
 
 ```shell
@@ -28,6 +26,7 @@ Run the command "gcloud config set account mala.ut.29@gmail.com" to switch to th
 # Deploying the app to Google App Engine
 Run the command "gcloud app deploy app.yaml --project maximal-furnace-371714" to deploy the app to the specified Google App Engine project.
 ```
+[![Deploy to App Engine](https://github.com/athachai29/chat-analytic/actions/workflows/google.yaml/badge.svg)](https://github.com/athachai29/chat-analytic/actions/workflows/google.yaml)
 
 ## References
 
@@ -36,3 +35,7 @@ Run the command "gcloud app deploy app.yaml --project maximal-furnace-371714" to
 ## Notes
 
 1. deta.sh not suport MongoDB and have so many limitations <https://docs.deta.sh/docs/micros/about/#important-notes>
+
+## If you like it
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O85A4OI)
